@@ -111,3 +111,21 @@ class CarSellEstimator {
         const mileage = parseInt(this.mileageInput.value);
         const condition = this.conditionSelect.value;
         const askingPrice = parseFloat(this.priceInput.
+    calculateEstimate() {
+        const make = this.makeSelect.value;
+        const model = this.modelSelect.value;
+        const year = parseInt(this.yearInput.value);
+        const mileage = parseInt(this.mileageInput.value);
+        const condition = this.conditionSelect.value;
+        const askingPrice = parseFloat(this.priceInput.value);
+
+        if (!make || !model || !year || !mileage || !condition || !askingPrice) {
+            alert('Please fill in all fields');
+            return;
+        }
+
+        const estimate = this.performCalculation(make, model, year, mileage, condition, askingPrice);
+        this.displayResults(estimate);
+    }
+
+    
